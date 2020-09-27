@@ -2,9 +2,10 @@ package controllers
 
 import (
 	"encoding/hex"
-	"github.com/cnlh/nps/lib/crypt"
-	"github.com/cnlh/nps/vender/github.com/astaxie/beego"
 	"time"
+
+	"ehang.io/nps/lib/crypt"
+	"github.com/astaxie/beego"
 )
 
 type AuthController struct {

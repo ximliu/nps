@@ -1,15 +1,16 @@
 package tool
 
 import (
-	"github.com/cnlh/nps/lib/common"
-	"github.com/cnlh/nps/vender/github.com/astaxie/beego"
+	"math"
+	"strconv"
+	"time"
+
+	"ehang.io/nps/lib/common"
+	"github.com/astaxie/beego"
 	"github.com/shirou/gopsutil/cpu"
 	"github.com/shirou/gopsutil/load"
 	"github.com/shirou/gopsutil/mem"
 	"github.com/shirou/gopsutil/net"
-	"math"
-	"strconv"
-	"time"
 )
 
 var (
@@ -30,6 +31,9 @@ func InitAllowPort() {
 }
 
 func TestServerPort(p int, m string) (b bool) {
+	if m == "p2p" || m == "secret" {
+		return true
+	}
 	if p > 65535 || p < 0 {
 		return false
 	}

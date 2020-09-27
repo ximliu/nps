@@ -1,15 +1,16 @@
 package connection
 
 import (
-	"github.com/cnlh/nps/lib/mux"
-	"github.com/cnlh/nps/vender/github.com/astaxie/beego"
-	"github.com/cnlh/nps/vender/github.com/astaxie/beego/logs"
 	"net"
 	"os"
 	"strconv"
+
+	"ehang.io/nps/lib/pmux"
+	"github.com/astaxie/beego"
+	"github.com/astaxie/beego/logs"
 )
 
-var pMux *mux.PortMux
+var pMux *pmux.PortMux
 var bridgePort string
 var httpsPort string
 var httpPort string
@@ -27,7 +28,7 @@ func InitConnectionService() {
 			logs.Error(err)
 			os.Exit(0)
 		}
-		pMux = mux.NewPortMux(port, beego.AppConfig.String("web_host"))
+		pMux = pmux.NewPortMux(port, beego.AppConfig.String("web_host"))
 	}
 }
 

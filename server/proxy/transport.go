@@ -3,11 +3,12 @@
 package proxy
 
 import (
-	"github.com/cnlh/nps/lib/common"
-	"github.com/cnlh/nps/lib/conn"
 	"net"
 	"strconv"
 	"syscall"
+
+	"ehang.io/nps/lib/common"
+	"ehang.io/nps/lib/conn"
 )
 
 func HandleTrans(c *conn.Conn, s *TunnelModeServer) error {
